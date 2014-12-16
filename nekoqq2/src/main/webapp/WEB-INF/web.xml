@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+    license agreements. See the NOTICE file distributed with this work for additional 
+    information regarding copyright ownership. The ASF licenses this file to 
+    You under the Apache License, Version 2.0 (the "License"); you may not use 
+    this file except in compliance with the License. You may obtain a copy of 
+    the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+    by applicable law or agreed to in writing, software distributed under the 
+    License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+    OF ANY KIND, either express or implied. See the License for the specific 
+    language governing permissions and limitations under the License. -->
+
+<!-- - This is the Cocoon web-app configurations file - - $Id$ -->
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+                        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+
+    <!--prop0001:spring的context配置文件路径的上下文参数 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <!-- 相关配置文件文件路径，可逗号隔开 -->
+        <param-value>
+        classpath*:config/spring/applicationContext.xml
+        </param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--end-->
+
+    <!--prop0002:log4j的context配置文件路径的上下文参数 -->
+    <context-param>
+        <!-- 设置log4j写入日志位于哪个项目路径下（如果tomcat部署多个项目的） -->
+        <param-name>webAppRootKey</param-name>
+        <!-- 多个项目配置参数如下，webapp是tomcat应用根路径，rootX是项目root名
+        <param-value>webapp.root1</param-value>
+        <param-value>webapp.root2</param-value> 
+        -->
+        <param-value>ROOT</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <!-- 相关配置文件文件路径，可逗号隔开 -->
+        <param-value>
+        classpath:/log4j.properties
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <!-- log4j检测配置文件变化间隔 -->
+        <param-value>60000</param-value>
+    </context-param>  
+    <listener>  
+        <listener-class>  
+            org.springframework.web.util.Log4jConfigListener  
+        </listener-class>  
+    </listener>  
+    <!--end-->
+    
+    
+    <!--  首页映射，只有 通过这个配置才能访问WEB-INF下的首页 -->
+    <servlet>
+        <servlet-name>welcomePage</servlet-name>
+        <jsp-file>/WEB-INF/jsp/index.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>welcomePage</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <!--end-->
+
+    
+    <!-- prop0003:spring MVC实现，采用servlet进行派发请求 -->
+    <servlet>
+        <servlet-name>springMVC-dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <!-- spring mvc启动配置文件 -->
+            <param-value>classpath*:config/spring/mvc-dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springMVC-dispatcher</servlet-name>
+        <!-- 拦截所有请求 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!--end-->
+    
+    
+</web-app>
+        

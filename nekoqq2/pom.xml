@@ -1,0 +1,184 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.elfleaf</groupId>
+  <artifactId>nekoqq2</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>nekoqq2 Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+      
+      
+      <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        
+        <!-- JSONObject依赖 -->
+        <dependency>    
+            <groupId>net.sf.json-lib</groupId>    
+            <artifactId>json-lib</artifactId>    
+            <version>2.4</version>    
+            <classifier>jdk15</classifier>    
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.7</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- httpClient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.4</version>
+        </dependency>
+
+        <!-- spring-junit测试用，需要 servlet-api-->
+<!--         <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>6.0.41</version>
+        </dependency> -->
+        <!-- servlet-api依赖结束 -->
+
+        <!-- log4j依赖开始 -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <!-- log4j依赖结束 -->
+        
+        
+        <!-- lucene -->
+        <dependency> 
+           <groupId>org.apache.lucene</groupId> 
+           <artifactId>lucene-core</artifactId> 
+           <version>3.6.1</version> 
+           <type>jar</type> 
+           <scope>compile</scope> 
+        </dependency>
+
+        <!-- html解析器 -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.7.3</version>
+        </dependency>
+        
+        
+
+        <!-- spring依赖配置开始 -->
+        <dependency>
+            <!-- spring必须包 -->
+            <!-- 基于AOP的Spring特性如声明型事务管理，如果需要使用aop还需要引入aopalliance，aspectjrt，aspectjweaver这3个jar包 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring必须包，它包含访问配置文件、创建和管理bean以及进行（IoC/DI）操作相关的所有类 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring必须包 ,已经包含spring-asm，包含Spring框架基本的核心工具类 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring必须包，为Spring核心提供了大量扩展 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring必须包，spring 表达式语言 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 辅助配合junit4测试，让spring依赖注入可单元测试，单元测试还需要引入junit4.1.7 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 这个jar 文件包含Spring 一整套mock 类来辅助应用的测试。Spring 测试套件使用了其中大量mock 类 ， 这样测试就更加简单。模拟HttpServletRequest 和HttpServletResponse 类在Web 应用单元测试是 很方便的。并且提供了对JUnit的支持。 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-mock</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- spring整合第三方的 ORM 映射支持，如 Hibernate 、Ibatis、Jdo以及spring的JPA的支持。 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 这个jar 文件包含Web 应用开发时，用到Spring 框架时所需的核心类，包括自动载入Web Application -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 这个jar 文件包含Spring MVC 框架相关的所有类。包括框架的Servlets，Web MVC框架，控制器和视图 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 第三方扩展包，比如要使用spring集成email发送邮件 ，或者spring集成quartz调度服务，以及对ui模版freemaker等的支持。 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+
+        <!-- spring扩展包 -->
+        <!-- 对Hibernate 3.0/3.1/3.2的支持。 外部依赖spring-jdbc，Hibernate3，(spring-web)。 -->
+        <!-- <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-hibernate3</artifactId>
+            <version>2.0.8</version>
+        </dependency> -->
+        
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 这个jar 文件包含对Spring 对JDBC 数据访问进行封装的所有类。 外部依赖spring-beans，spring-dao。 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>3.2.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <!-- spring扩展包 -->
+            <!-- 这个jar 文件包含Spring DAO、Spring Transaction 进行数据访问的所有类。为了使用声明型事务支 -->
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-dao</artifactId>
+            <version>2.0.8</version>
+        </dependency>
+      
+      
+      
+      
+      
+      
+  </dependencies>
+  <build>
+    <finalName>nekoqq2</finalName>
+  </build>
+</project>
