@@ -20,6 +20,7 @@ import nekoqq.login.thread.ProtectRunnable;
 import nekoqq.pull.cpt.PullCpt;
 import nekoqq.push.cpt.PushCpt;
 import nekoqq.pushDecide.cpt.PushDecideCpt;
+import nekoqq.task.cpt.TaskCpt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -46,6 +47,9 @@ public class LoginCtrl {
 
     @Autowired
     private PushCpt pushCpt;
+    
+    @Autowired
+    private TaskCpt taskCpt;
     
     @Autowired
     private ApplicationContext applicationContext; 
@@ -216,6 +220,8 @@ public class LoginCtrl {
             pushDecideCpt.startPushDecide();
             //开启消息发送
             pushCpt.startPush();
+            //开启任务相关线程
+            taskCpt.startTaskThread();
             
 //            //开启聊天反应机制处理线程
 //            InitChatRunnable initChatRunnable = new InitChatRunnable(httpclient, loginUserInfoBean);
