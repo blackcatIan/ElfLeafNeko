@@ -89,7 +89,7 @@ public class GroupNoticeRunnable  implements Runnable, CanStopThread{
                         
                         msgList.add(sendMsgBean);
                         //最快群发公告消息速度间隔
-                        Thread.sleep(1 * 60 * 1000);
+                        Thread.sleep(3 * 60 * 1000);
                     }
                 } catch (Exception e) {
                     logger.error("groupNoticeRunnable ", e);
