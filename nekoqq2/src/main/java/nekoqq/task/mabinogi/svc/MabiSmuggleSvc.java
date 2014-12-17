@@ -1,25 +1,12 @@
 package nekoqq.task.mabinogi.svc;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import nekoqq.beans.ReceiveMsgBean;
 import nekoqq.beans.SendMsgBean;
 import nekoqq.beans.SendMsgList;
-import nekoqq.helper.ThreadHttpClientHelper;
 import nekoqq.task.mabinogi.cache.MabiSmuggleCache;
-import nekoqq.task.mabinogi.constant.MabinogiUrl;
-import nekoqq.task.mabinogi.constant.SmuggleTranslate;
-import nekoqq.utils.httpclient.UtilsHttpClient;
-import nekoqq.utils.httpclient.beans.HttpResponseData;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.log4j.Logger;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.junit.Test;
 import org.springframework.stereotype.Service;
 
